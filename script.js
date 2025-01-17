@@ -247,12 +247,26 @@ console.log(slides);
 const btnLeft = document.querySelector('.slider__btn--left');
 const btnRight = document.querySelector('.slider__btn--right');
 
+const dotContainer = document.querySelector('.dots');
+
 let curSlide = 0;
 const maxSlide = slides.length;
 
 // const slider = document.querySelector('.slider');
 // slider.style.transform = 'scale(0.2) translateX(-800px)';
 // slider.style.overflow = 'visible';
+
+const createDots = function () {
+  slides.forEach(function (_, i) {
+    dotContainer.insertAdjacentHTML(
+      'beforeend',
+      `
+      <button class = 'dots__dot' data-slide=${i} ></button>`
+    );
+  });
+};
+
+createDots();
 
 const goToSlide = function (slide) {
   slides.forEach(
